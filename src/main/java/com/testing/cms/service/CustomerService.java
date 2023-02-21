@@ -1,10 +1,12 @@
 package com.testing.cms.service;
 
 import com.testing.cms.model.Customer;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
+@Component
 public class CustomerService {
 
     private int customerIdCount = 1;
@@ -14,7 +16,7 @@ public class CustomerService {
     public Customer addCustomer (Customer customer) {
         customer.setCustomerId(customerIdCount);
         customerList.add(customer);
-        customerList.add(customer);
+//        customerList.add(customer);
         customerIdCount++;
         return customer;
     }
@@ -54,15 +56,15 @@ public class CustomerService {
 
     //delete customer function
     public void deleteCustomer (int customerId) {
-        customerList
+            customerList
                 .stream()
-                .filter(c-> {
-                    if(c.getCustomerId() == customerId){
+                .forEach(c-> {
+                    if (c.getCustomerId() == customerId) {
                         customerList.remove(c);
                     }
-                    return false;
                 });
+
+
+
     }
-
-
 }
