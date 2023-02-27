@@ -16,7 +16,7 @@ public class CustomerService {
     @Autowired
     private CustomerDAO customerDAO;
 
-    private int customerIdCount = 1;
+//    private int customerIdCount = 1;
     private List<Customer> customerList = new CopyOnWriteArrayList<>();
 
     //add customer function

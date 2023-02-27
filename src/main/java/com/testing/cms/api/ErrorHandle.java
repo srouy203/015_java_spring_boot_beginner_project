@@ -18,13 +18,16 @@ public class ErrorHandle extends ResponseEntityExceptionHandler {
     @Value("${api_doc_url}")
     private String detail;
 
+    @Value("Don't try to enter")
+    private String recommend;
+
     @ExceptionHandler(CustomerNotFoundException.class)
     public ResponseEntity<ApplicationError> handleCustomerNotFoundException (CustomerNotFoundException exception, WebRequest webRequest) {
         ApplicationError error = new ApplicationError();
         error.setCode(101);
         error.setMessage(exception.getMessage());
         error.setDetail(detail);
+        error.setRecommend(recommend);
         return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);
     }
-
 }

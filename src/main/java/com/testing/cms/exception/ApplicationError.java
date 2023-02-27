@@ -5,6 +5,15 @@ public class ApplicationError {
     private int code;
     private String message;
     private String detail;
+    private String recommend;
+
+    public String getRecommend() {
+        return recommend;
+    }
+
+    public void setRecommend(String recommend) {
+        this.recommend = recommend;
+    }
 
     public String getDetail() {
         return detail;
